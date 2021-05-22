@@ -16,6 +16,11 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    checkins: [{
+        type: Schema.Types.ObjectId,
+        ref: "Checkin",
+        required: false
+    }],
     registrationDate: {
         type: Date,
         default: Date.now

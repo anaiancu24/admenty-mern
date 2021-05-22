@@ -4,12 +4,14 @@ const auth = require('../../routes/middleware/auth')
 
 // Item Model
 const Checkin = require('../../models/Checkin');
+const User = require('../../models/User');
+
 
 // @route GET api/checkins
 // @desc Get All Checkins
 // @access Public
 router.get('/', auth, (req, res) => {
-    Checkin.find()
+    Checkin.find( {user: req.user.id} )
         .sort({date: -1})
         .then(checkins => res.json(checkins))
 })
@@ -19,7 +21,8 @@ router.get('/', auth, (req, res) => {
 // @access Private
 router.post('/', auth, (req, res) => {
     const newCheckin = new Checkin({
-        mood: req.body.mood
+        mood: req.body.mood,
+        user: req.user.id
     })
     newCheckin.save().then(checkin => res.json(checkin))
 })

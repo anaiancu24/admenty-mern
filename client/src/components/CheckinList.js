@@ -19,7 +19,7 @@ class ShoppingList extends Component {
         const { moods } = this.props.mood
         return(
             <Container>
-                {this.props.isAuthenticated ? 
+            
                                 <ListGroup>
                                 {moods.map(({_id, mood}) => (
                                         <ListGroupItem key={_id}>
@@ -34,8 +34,8 @@ class ShoppingList extends Component {
                                             {mood}
                                         </ListGroupItem>
                                 ))}
-                        </ListGroup> : <h4 className="mb-3 ml-4">Please log in to see your list</h4>
-                }
+                        </ListGroup> 
+                
 
 
             </Container>
