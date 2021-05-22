@@ -1,26 +1,31 @@
 const express = require('express');
 const mongoose = require('mongoose');
-const bodyParser = require('body-parser');
-const path = require('path')
-
-const checkins = require('./routes/api/checkin')
+const path = require('path');
+const config = require('config');
 
 const app = express();
 // bodyParser middleware
-app.use(bodyParser.json());
+app.use(express.json());
 
 // DB Config
-const db = require('./config/keys').mongoURI
+const db = config.get('mongoURI');
 
 // Connect to MondoDB
 mongoose
-    .connect(db)
+    .connect(db, {
+        useNewUrlParser:true,
+        useCreateIndex: true
+    })
     .then(() => console.log('MongoDB connected...'))
     .catch(err => console.log(err))
 
 
 // Use Routes
-app.use('/api/checkins', checkins)
+app.use('/api/checkins', require('./routes/api/checkin'))
+app.use('/api/users', require('./routes/api/users'))
+app.use('/api/auth', require('./routes/api/auth'))
+
+
 
 // Serve static assets if we're in production
 if (process.env.NODE_ENV === 'production') {

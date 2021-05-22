@@ -11,11 +11,16 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import { addMood } from '../actions/moodActions';
+import PropTypes from 'prop-types';
 
 class CheckingModal extends Component {
     state = {
         modal:false,
         mood: ''
+    }
+
+    static propTypes = {
+        isAuthenticated: PropTypes.bool
     }
 
     toggle = () => {
@@ -47,13 +52,16 @@ class CheckingModal extends Component {
     render() {
         return (
             <div>
-                <Button
-                color="dark"
-                style={{marginBottom:'2rem'}}
-                onClick={this.toggle}
-                >
-                    Checkin
-                </Button>
+                {this.props.isAuthenticated ? 
+                                <Button
+                                color="dark"
+                                style={{marginBottom:'2rem'}}
+                                onClick={this.toggle}
+                                >
+                                    Checkin
+                                </Button> : ''
+                }
+
 
                 <Modal
                 isOpen={this.state.modal}
@@ -79,7 +87,8 @@ class CheckingModal extends Component {
 }
 
 const mapStateToProps = (state) => ({
-    mood: state.mood
+    mood: state.mood,
+    isAuthenticated: state.auth.isAuthenticated
 })
 
 export default connect( mapStateToProps, {addMood} )(CheckingModal)

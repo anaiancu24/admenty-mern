@@ -1,6 +1,10 @@
 import { combineReducers } from 'redux';
 import moodReducer from './moodReducer';
+import errorReducer from './errorReducer';
+import authReducer from './authReducer'
 
 export default combineReducers({
-    mood: moodReducer
+    mood: moodReducer,
+    error: errorReducer,
+    auth: authReducer
 })

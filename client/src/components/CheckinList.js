@@ -19,22 +19,24 @@ class ShoppingList extends Component {
         const { moods } = this.props.mood
         return(
             <Container>
+                {this.props.isAuthenticated ? 
+                                <ListGroup>
+                                {moods.map(({_id, mood}) => (
+                                        <ListGroupItem key={_id}>
+                                            <Button
+                                            className="remove-btn"
+                                            color="danger"
+                                            size="sm"
+                                            onClick={this.onDeleteClick.bind(this, _id)}
+                                            >
+                                            &times;
+                                            </Button>
+                                            {mood}
+                                        </ListGroupItem>
+                                ))}
+                        </ListGroup> : <h4 className="mb-3 ml-4">Please log in to see your list</h4>
+                }
 
-                <ListGroup>
-                        {moods.map(({_id, mood}) => (
-                                <ListGroupItem key={_id}>
-                                    <Button
-                                    className="remove-btn"
-                                    color="danger"
-                                    size="sm"
-                                    onClick={this.onDeleteClick.bind(this, _id)}
-                                    >
-                                    &times;
-                                    </Button>
-                                    {mood}
-                                </ListGroupItem>
-                        ))}
-                </ListGroup>
 
             </Container>
         )
@@ -43,11 +45,14 @@ class ShoppingList extends Component {
 
 ShoppingList.propTypes = {
     getMoods: PropTypes.func.isRequired,
-    mood: PropTypes.object.isRequired
+    mood: PropTypes.object.isRequired,
+    isAuthenticated: PropTypes.bool
+
 }
 
 const mapStateToProps = (state) => ({
-    mood: state.mood
+    mood: state.mood,
+    isAuthenticated: state.auth.isAuthenticated
 })
 
 export default connect(mapStateToProps, { getMoods , deleteMood })(ShoppingList);
