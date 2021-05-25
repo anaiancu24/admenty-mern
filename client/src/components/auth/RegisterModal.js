@@ -13,6 +13,8 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+import { Redirect } from 'react-router-dom';
+
 import { register } from '../../actions/authActions';
 import {clearErrors} from "../../actions/errorActions"
 
@@ -46,6 +48,7 @@ class RegisterModal extends Component {
         if(this.state.modal) {
             if(this.props.isAuthenticated) {
                 this.toggle()
+                return <Redirect to="/dashboard" />
             }
         }
     }

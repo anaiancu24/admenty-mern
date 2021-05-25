@@ -13,8 +13,9 @@ import {
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
+
 import { login } from '../../actions/authActions';
-import {clearErrors} from "../../actions/errorActions"
+import { clearErrors } from "../../actions/errorActions"
 
 class LoginModal extends Component {
     state = {
@@ -33,17 +34,17 @@ class LoginModal extends Component {
 
     componentDidUpdate(prevProps) {
         const { error } = this.props;
-        if(error !== prevProps.error) {
+        if (error !== prevProps.error) {
             // Check for register error
-            if(error.status === 'LOGIN_FAIL') {
-                this.setState({ msg: error.msg.msg})
+            if (error.status === 'LOGIN_FAIL') {
+                this.setState({ msg: error.msg.msg })
             } else {
-                this.setState({ msg: null})
+                this.setState({ msg: null })
             }
         }
-        // If authenticated, close modal
-        if(this.state.modal) {
-            if(this.props.isAuthenticated) {
+        // If authenticated, close modal and redirect to dashboard
+        if (this.state.modal) {
+            if (this.props.isAuthenticated) {
                 this.toggle()
             }
         }
@@ -69,16 +70,17 @@ class LoginModal extends Component {
         const { email, password } = this.state;
 
         const user = {
-            email, 
+            email,
             password
         }
 
         // Attempt to login
         this.props.login(user)
-        
+
     }
 
     render() {
+
         return (
             <div>
                 <NavLink onClick={this.toggle} href="#">
@@ -92,7 +94,7 @@ class LoginModal extends Component {
                     <ModalHeader toggle={this.toggle}>
                         Login
                     </ModalHeader>
-                    {this.state.msg ? <Alert color="danger">{this.state.msg}</Alert> : null }
+                    {this.state.msg ? <Alert color="danger">{this.state.msg}</Alert> : null}
                     <ModalBody>
                         <Form onSubmit={this.onSubmit}>
 
@@ -109,6 +111,7 @@ class LoginModal extends Component {
                         </Form>
                     </ModalBody>
                 </Modal>
+
             </div>
         )
     }

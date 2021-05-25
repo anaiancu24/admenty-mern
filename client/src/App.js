@@ -1,14 +1,13 @@
 import React, { Component } from 'react';
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import AppNavBar from './components/AppNavBar';
-import CheckinList from './components/CheckinList';
-import CheckinModal from './components/CheckinModal';
+import Landing from './pages/Landing';
+import Dashboard from './pages/Dashboard';
+
 import { Provider } from 'react-redux';
+import { BrowserRouter, Route } from 'react-router-dom';
 import store from './store';
 import { loadUser } from './actions/authActions';
-
-import { Container } from 'reactstrap';
 
 class App extends Component {
   componentDidMount() {
@@ -18,13 +17,12 @@ class App extends Component {
   render() {
     return (
       <Provider store={store}>
-      <div className="App">
-        <AppNavBar/>
-        <Container>
-        <CheckinModal />
-        <CheckinList/>
-        </Container>
-      </div>
+        <div className="App">
+          <BrowserRouter>
+            <Route exact path="/" component={Landing} />
+            <Route exact path="/dashboard" component={Dashboard} />
+          </BrowserRouter>
+        </div>
       </Provider>
     );
   }
