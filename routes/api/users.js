@@ -26,7 +26,7 @@ router.post('/', (req, res) => {
             const newUser = new User({
                 name,
                 email,
-                password
+                password,
             });
 
             // Create salt & hash
