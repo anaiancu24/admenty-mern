@@ -105,7 +105,7 @@ class RegisterModal extends Component {
                                 <Input type="email" name="email" id="email" placeholder="Type your email.." onChange={this.onChange} />
                             </FormGroup>
                             <FormGroup>
-                                <Label for="name">Name</Label>
+                                <Label for="name">Password</Label>
                                 <Input type="password" name="password" id="password" placeholder="Type your password.." onChange={this.onChange} />
                             </FormGroup>
 

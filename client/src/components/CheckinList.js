@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { getMoods, deleteMood } from '../actions/moodActions';
 import PropTypes from 'prop-types'
 
-class ShoppingList extends Component {
+class CheckinList extends Component {
 
     componentDidMount() {
         this.props.getMoods();
@@ -22,18 +22,18 @@ class ShoppingList extends Component {
             
                                 <ListGroup>
                                 {moods.map(({_id, mood}) => (
-                                        <ListGroupItem key={_id}>
-                                            <Button
-                                            className="remove-btn"
-                                            color="danger"
-                                            size="sm"
-                                            onClick={this.onDeleteClick.bind(this, _id)}
-                                            >
-                                            &times;
-                                            </Button>
-                                            {mood}
-                                        </ListGroupItem>
-                                ))}
+                                <ListGroupItem key={_id}>
+                                    <Button
+                                    className="remove-btn"
+                                    color="danger"
+                                    size="sm"
+                                    onClick={this.onDeleteClick.bind(this, _id)}
+                                    >
+                                    &times;
+                                    </Button>
+                                    {mood}
+                                </ListGroupItem>
+                        ))}
                         </ListGroup> 
                 
 
@@ -43,7 +43,7 @@ class ShoppingList extends Component {
     }
 }
 
-ShoppingList.propTypes = {
+CheckinList.propTypes = {
     getMoods: PropTypes.func.isRequired,
     mood: PropTypes.object.isRequired,
     isAuthenticated: PropTypes.bool
@@ -55,4 +55,4 @@ const mapStateToProps = (state) => ({
     isAuthenticated: state.auth.isAuthenticated
 })
 
-export default connect(mapStateToProps, { getMoods , deleteMood })(ShoppingList);
+export default connect(mapStateToProps, { getMoods , deleteMood })(CheckinList);
