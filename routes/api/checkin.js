@@ -4,33 +4,41 @@ const auth = require('../../routes/middleware/auth')
 
 // Item Model
 const Checkin = require('../../models/Checkin');
-//const User = require('../../models/User');
+const User = require('../../models/User');
 
 
 // @route GET api/checkins
-// @desc Get All Checkins
+// @desc Get All Checkins of the Authenticated user
 // @access Public
-router.get('/', auth, (req, res) => {
-    Checkin.find({ user: req.user.id })
-        .sort({ date: -1 })
-        .then(checkins => res.json(checkins))
+router.get('/', auth, async (req, res) => {
+    const userId = req.user.id
+    // Find current user and populate the checkins
+    const currentUser = await User.findById(userId).populate('checkins')
+    res.json(currentUser.checkins)
 })
 
 // @route POST api/checkins
-// @desc Create a checkin
+// @desc Create a checkin for the Authenticated user
 // @access Private
-router.post('/', auth, (req, res) => {
-    const newCheckin = new Checkin({
-        mood: req.body.mood,
-        user: req.user.id
-    })
-    newCheckin.save().then(checkin => {
-        res.send(checkin)
-    })
+router.post('/', auth, async (req, res) => {
+    const userId = req.user.id
+    // Create a new checkin
+    const newCheckin = new Checkin(req.body)
+    // Find current user
+    const currentUser = await User.findById(userId)
+    // Assign current user to the checkin
+    newCheckin.user = currentUser;
+    // Save the new checkin
+    newCheckin.save();
+    // Add checkin to the user's checkins array
+    currentUser.checkins.push(newCheckin._id);
+    // Save the user
+    currentUser.save();
+    res.status(201).json(newCheckin)
 })
 
 // @route DELETE api/checkins/:id
-// @desc Delete a checkin
+// @desc Delete a checkin of the Authenticated user
 // @access Private
 router.delete('/:id', auth, (req, res) => {
     Checkin.findById(req.params.id)

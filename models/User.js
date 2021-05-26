@@ -18,8 +18,7 @@ const UserSchema = new Schema({
     },
     checkins: [{
         type: Schema.Types.ObjectId,
-        ref: "checkin",
-        required: false
+        ref: "checkin"
     }],
     registrationDate: {
         type: Date,

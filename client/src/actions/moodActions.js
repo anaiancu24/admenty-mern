@@ -7,10 +7,13 @@ export const getMoods = () => (dispatch, getState) => {
     dispatch(setMoodsLoading());
     axios
         .get('/api/checkins', tokenConfig(getState))
-        .then(res => dispatch({
-            type: GET_MOODS,
-            payload: res.data
-        }))
+        .then(res => {
+            console.log(res)
+            dispatch({
+                type: GET_MOODS,
+                payload: res.data
+            })
+        })
         .catch(err => dispatch(returnErrors(err.response.data, err.response.status)))
 }
 
