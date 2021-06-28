@@ -6,7 +6,7 @@ import {
     NavbarBrand,
     Nav,
     NavItem,
-    Container
+    NavLink
 } from 'reactstrap';
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
@@ -61,17 +61,31 @@ class AppNavBar extends Component {
         )
         return (
             <div>
-                <Navbar color="dark" dark expand="sm" className="mb-5">
-                    <Container>
-                        <NavbarBrand href="/">Admenty</NavbarBrand>
+                <Navbar expand="sm" className="nav mb-5">
+                        <NavbarBrand href="/">
+                            <img src="/images/logo_grey.svg" className="logo" alt="admenty-logo"/>
+                        </NavbarBrand>
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
+                            <Nav className="mr-auto" navbar>
+                                <NavLink href="#about" className="text-secondary">
+                                    About us
+                                </NavLink>
+                                <NavLink href="#benefits" className="text-secondary">
+                                    Benefits
+                                </NavLink>
+                                <NavLink href="#pricing" className="text-secondary">
+                                    Pricing
+                                </NavLink>
+                                <NavLink href="#contact" className="text-secondary">
+                                    Contact
+                                </NavLink>
+                            </Nav>
                             <Nav className="ml-auto" navbar>
                                 { isAuthenticated ? authLinks : guestLinks }
                             </Nav>
 
                         </Collapse>
-                    </Container>
                 </Navbar>
             </div>
         )

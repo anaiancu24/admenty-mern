@@ -1,0 +1,33 @@
+// Font family
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,700|Roboto+Mono:400,700|Caveat&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@200;300;400;600&family=Lato:ital,wght@0,300;0,700;1,400&display=swap');
+
+$font-roboto        : 'Roboto';
+$font-roboto-mono   : 'Roboto Mono';
+$font-inter         : 'Inter', sans-serif;
+$font-open-sans     :'Open Sans', sans-serif;
+
+// Font sizes
+$font-size-12       : 12px;
+$font-size-20       : 18px;
+$font-size-16       : 16px;
+$font-size-18       : 18px;
+$font-size-24       : 24px;
+$font-size-28       : 28px;
+$font-size-36       : 36px;
+$font-size-48       : 48px;
+$font-size-64       : 64px;
+
+
+// Colors
+$cornflower-blue    :#6C63FF;
+$mountain-meadow    :#1e9cf9;
+$mountain-meadow-hover    :rgb(0, 300, 150);
+$bottle-green       :#082D0F;
+$grey-dark          :#1F2022;
+$grey-medium        :#576784;
+$grey-light         :#DEDDDD;
+$grey-super-light   :#f9f7f7;
+
+// BORDERS
+$border-radius-65   : 65px;

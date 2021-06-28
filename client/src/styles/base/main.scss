@@ -1,0 +1,12 @@
+//Settings, mixins + main layouts styling
+@import '_mixins.scss';
+@import '_variables.scss';
+
+html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+}
+
+body {
+    font-family: $font-inter;
+}

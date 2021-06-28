@@ -1,0 +1,35 @@
+@import './base/main.scss';
+
+@include desktop {
+    .container {
+        border-left: 3px dotted $grey-super-light;
+        border-right: 3px dotted $grey-super-light;
+    }
+
+    .navbar {
+        padding: .5rem 0 !important;
+
+        .logo {
+            max-width:130px;
+        }
+    }
+
+    .navbar, .header {
+        border-bottom: 3px dotted $grey-super-light;
+    }
+
+    .header {
+        padding: 50px 0;
+    }
+
+    .header-intro {
+        @include flex(center, center);
+    }
+
+    .header-illust {
+        img {
+            max-height: 450px;
+        }
+    }
+    
+}
