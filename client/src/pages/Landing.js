@@ -32,6 +32,27 @@ class Landing extends Component {
                     </div>
                 </div>
 
+                <div className="section">
+                    <h2>Why would you track your moods and happiness?</h2>
+                    <div className="d-lg-flex">
+                        <div className="item">
+                            <img src="" alt="" />
+                            <h3>Notice patterns</h3>
+                            <p>You can see patterns when you become sad or anxious or happy and be aware of that triggers you</p>
+                        </div>
+                        <div className="item">
+                            <img src="" alt="" />
+                            <h3>Notice patterns</h3>
+                            <p>You can see patterns when you become sad or anxious or happy and be aware of that triggers you</p>
+                        </div>                        
+                        <div className="item">
+                            <img src="" alt="" />
+                            <h3>Notice patterns</h3>
+                            <p>You can see patterns when you become sad or anxious or happy and be aware of that triggers you</p>
+                        </div>
+                    </div>
+                </div>
+
                 {isAuthenticated &&
                     <Redirect to={{
                         pathname: "/dashboard"
