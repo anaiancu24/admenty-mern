@@ -32,26 +32,60 @@ class Landing extends Component {
                     </div>
                 </div>
 
-                <div className="section">
-                    <h2>Why would you track your moods and happiness?</h2>
+                <div className="section text-center">
+                    <h2 className="mb-5">Why would you track your moods and happiness?</h2>
                     <div className="d-lg-flex">
                         <div className="item">
-                            <img src="" alt="" />
+                            <img className="mb-4" src="/images/icon_pyramid.svg" alt="" />
                             <h3>Notice patterns</h3>
                             <p>You can see patterns when you become sad or anxious or happy and be aware of that triggers you</p>
                         </div>
                         <div className="item">
-                            <img src="" alt="" />
+                            <img className="mb-4" src="/images/icon_pyramid.svg" alt="" />
                             <h3>Notice patterns</h3>
                             <p>You can see patterns when you become sad or anxious or happy and be aware of that triggers you</p>
                         </div>                        
                         <div className="item">
-                            <img src="" alt="" />
+                            <img className="mb-4" src="/images/icon_pyramid.svg" alt="" />
                             <h3>Notice patterns</h3>
                             <p>You can see patterns when you become sad or anxious or happy and be aware of that triggers you</p>
                         </div>
                     </div>
                 </div>
+
+
+                <div className="section text-center">
+                    <h2 className="mb-5">How does it work?</h2>
+                    <div className="d-lg-flex">
+                        <div>
+                        <p>
+                            A very intuitive platform that will guide you through your daily mood and based on your checkins, you will have access to a stats dashboard to analyse your tracking.
+                        </p>
+                        <ol>
+                            <li>
+                                Check in everyday honestly
+                            </li>
+                            <li>
+                                Set your current mood
+                            </li>
+                            <li>
+                                Write down your thoughts
+                            </li>
+                            <li>
+                                Save and do it everyday
+                            </li>
+                            <li>
+                                Analyse your stats
+                            </li>
+                        </ol>
+                        </div>
+                        <img src="" alt="" />
+
+                    </div>
+
+                </div>
+
+
 
                 {isAuthenticated &&
                     <Redirect to={{
