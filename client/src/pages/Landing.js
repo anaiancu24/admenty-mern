@@ -54,32 +54,32 @@ class Landing extends Component {
                 </div>
 
 
-                <div className="section text-center">
-                    <h2 className="mb-5">How does it work?</h2>
-                    <div className="d-lg-flex">
+                <div className="section">
+                    <h2 className="mb-5 text-center">How does it work?</h2>
+                    <div className="d-lg-flex justify-content-center align-items-center">
                         <div>
                         <p>
                             A very intuitive platform that will guide you through your daily mood and based on your checkins, you will have access to a stats dashboard to analyse your tracking.
                         </p>
-                        <ol>
-                            <li>
+                        <ol className="list-items">
+                            <li className="list-item">
                                 Check in everyday honestly
                             </li>
-                            <li>
+                            <li className="list-item">
                                 Set your current mood
                             </li>
-                            <li>
+                            <li className="list-item">
                                 Write down your thoughts
                             </li>
-                            <li>
+                            <li className="list-item">
                                 Save and do it everyday
                             </li>
-                            <li>
+                            <li className="list-item">
                                 Analyse your stats
                             </li>
                         </ol>
                         </div>
-                        <img src="" alt="" />
+                        <img className="placeholder-dashboard" src="/images/placeholder_dashboard-gif.png" alt="" />
 
                     </div>
 
