@@ -53,13 +53,13 @@ class CheckingModal extends Component {
         return (
             <div>
                 {this.props.isAuthenticated ? 
-                                <Button
-                                color="dark"
-                                style={{marginBottom:'2rem'}}
+                                <button
+                                type="button"
+                                className="btn btn-primary btn-lg"
                                 onClick={this.toggle}
                                 >
                                     Checkin
-                                </Button> : ''
+                                </button> : ''
                 }
 
 

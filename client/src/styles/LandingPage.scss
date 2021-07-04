@@ -35,7 +35,17 @@
     .section {
         padding: 100px 0;
         border-bottom: 3px dotted $grey-super-light;
+
+        p {
+            max-width: 850px;
+            margin: 0 auto;
+        }
     }
+
+    .benefit-illust {
+        max-height: 70px;
+    }
+
 
     .placeholder-dashboard {
         max-height: 400px;
@@ -49,20 +59,28 @@
 .list-item {
         display: block;
         margin-bottom: 24px;
+        list-style: none;
+		position: relative;
+		padding: 0 0 0 20px;
     }
     .list-item:before {
-        display: inline-block;
-        content: counter(item) "";
-        counter-increment: item;
-        background: #157AF6;
-        color: white;
-        display: inline-block;
-        border-radius: 101%;
-        margin: 0 5px;
-        height: 25px;
-        width: 25px;
-        text-align: center;
-    
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 14px;
+        height: 14px;
+        background-color: $green-fun;
+        border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
     }
-    
+    li {
+        list-style: none;
+    }
+
+    footer {
+        padding: 8px 0;
+        font-size:12px;
+    }
 }

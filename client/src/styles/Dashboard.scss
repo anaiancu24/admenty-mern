@@ -1,0 +1,91 @@
+@import './base/main.scss';
+
+.dashboard {
+    padding:40px;
+}
+
+.toolbar {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+}
+
+.toolbar .logo {
+    height:30px;
+
+    img {
+        height:100%;
+    }
+}
+
+.toolbar .greeting {
+    color:#b3b3ba;
+    font-size: 18px;
+}
+
+.toolbar .greeting .highlighted {
+    background-image: linear-gradient(101deg, $mountain-meadow  0%, $green-fun 100%);
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    font-weight: 600;
+}
+
+.dashboard-wrapper {
+    display:flex;
+}
+
+.sidebar {
+    position: relative;
+    width: 140px;
+    height: 475px;
+    border-radius: 40px;
+    padding:70px 0;
+    margin-right: 110px;
+    background-color: $green-fun;
+    opacity: 0.7;
+}
+
+
+
+.sidebar-option {
+    width: 50px;
+    height: 50px;
+    opacity: 0.8;
+    border-radius: 12px;
+    background-color: rgba(216, 216, 216, 0.1);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0 auto;
+    margin-bottom: 30px;
+    cursor: pointer;
+    position:relative;
+    z-index:1;
+
+    img {
+        height: 50%;
+    }
+}
+
+.selected {
+    background-image: linear-gradient(135deg, $grey-light 1%, $grey-super-light);
+    opacity: 1;
+}
+
+.settings {
+    position: absolute;
+    bottom:70px;
+    z-index:1;   
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    align-items: center;
+}
+
+button {
+    z-index: 1;
+    border: none;
+    background-color: unset;
+}

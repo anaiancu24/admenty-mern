@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, ListGroup, ListGroupItem, Button} from 'reactstrap';
+import { ListGroup, ListGroupItem, Button} from 'reactstrap';
 import { connect } from 'react-redux';
 import { getMoods, deleteMood } from '../actions/moodActions';
 import PropTypes from 'prop-types'
@@ -18,19 +18,19 @@ class CheckinList extends Component {
 
         const { moods } = this.props.mood
         return(
-            <Container>
+            <div>
             
                                 <ListGroup>
                                 {moods.map(({_id, mood}) => (
                                 <ListGroupItem key={_id}>
-                                    <Button
+                                    {/* <Button
                                     className="remove-btn"
                                     color="danger"
                                     size="sm"
                                     onClick={this.onDeleteClick.bind(this, _id)}
                                     >
                                     &times;
-                                    </Button>
+                                    </Button> */}
                                     {mood}
                                 </ListGroupItem>
                         ))}
@@ -38,7 +38,7 @@ class CheckinList extends Component {
                 
 
 
-            </Container>
+            </div>
         )
     }
 }

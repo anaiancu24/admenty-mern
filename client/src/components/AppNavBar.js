@@ -68,11 +68,11 @@ class AppNavBar extends Component {
                         <NavbarToggler onClick={this.toggle} />
                         <Collapse isOpen={this.state.isOpen} navbar>
                             <Nav className="mr-auto" navbar>
-                                <NavLink href="#about" className="text-secondary">
-                                    About us
-                                </NavLink>
                                 <NavLink href="#benefits" className="text-secondary">
-                                    Benefits
+                                   Benefits
+                                </NavLink>
+                                <NavLink href="#howitworks" className="text-secondary">
+                                    How it works
                                 </NavLink>
                                 <NavLink href="#pricing" className="text-secondary">
                                     Pricing
