@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
-import { ListGroup, ListGroupItem, Button} from 'reactstrap';
+//import { ListGroup, ListGroupItem } from 'reactstrap';
 import { connect } from 'react-redux';
 import { getMoods, deleteMood } from '../actions/moodActions';
 import PropTypes from 'prop-types'
+import moment from 'moment'
 
 class CheckinList extends Component {
 
@@ -17,13 +18,14 @@ class CheckinList extends Component {
     render() {
 
         const { moods } = this.props.mood
-        return(
+
+        return (
             <div>
-            
-                                <ListGroup>
-                                {moods.map(({_id, mood}) => (
-                                <ListGroupItem key={_id}>
-                                    {/* <Button
+                    {moods.slice(0).reverse().map(({ _id, mood, date }) => (
+                <div key={_id} className="row border rounded mb-1 p-3">
+
+                        <div className="col-9">
+                            {/* <Button
                                     className="remove-btn"
                                     color="danger"
                                     size="sm"
@@ -31,11 +33,14 @@ class CheckinList extends Component {
                                     >
                                     &times;
                                     </Button> */}
-                                    {mood}
-                                </ListGroupItem>
-                        ))}
-                        </ListGroup> 
-                
+                            {mood}
+                        </div>
+                        <div className="col-3">
+                            {moment(date).format('Do MMMM YYYY')}
+                        </div>
+
+                </div>
+                    ))}
 
 
             </div>
@@ -55,4 +60,4 @@ const mapStateToProps = (state) => ({
     isAuthenticated: state.auth.isAuthenticated
 })
 
-export default connect(mapStateToProps, { getMoods , deleteMood })(CheckinList);
+export default connect(mapStateToProps, { getMoods, deleteMood })(CheckinList);

@@ -24,7 +24,7 @@ class Landing extends Component {
                         <div>
                             <h1 className="heading mb-3">Your daily mental health tracker</h1>
                             <p className="text-secondary mb-4">Make your happiness and mental being a priority as much as you care about your physical health. </p>
-                            <button type="button" class="btn btn-primary">Start tracking your happiness</button>
+                            <button type="button" className="btn btn-primary">Start tracking your happiness</button>
                         </div>
                     </div>
                     <div className="ml-auto header-illust">
@@ -87,7 +87,7 @@ class Landing extends Component {
                 <div className="section text-center">
                     <h2 className="mb-3">Try our mental health tracker today</h2>
                     <p className="mb-4">If your mental health is not stable, you cannot achieve optimum physical health as well. Therefore, both mental and physical health is important for your overall wellbeing.   </p>
-                    <button type="button" class="btn btn-primary">Free trial</button>
+                    <button type="button" className="btn btn-primary">Free trial</button>
 
                 </div>
 
