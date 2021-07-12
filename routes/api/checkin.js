@@ -31,7 +31,7 @@ router.post('/', auth, async (req, res) => {
     // Save the new checkin
     newCheckin.save();
     // Add checkin to the user's checkins array
-    currentUser.checkins.push(newCheckin._id);
+    currentUser.checkins.unshift(newCheckin._id);
     // Save the user
     currentUser.save();
     res.status(201).json(newCheckin)

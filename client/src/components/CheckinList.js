@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-//import { ListGroup, ListGroupItem } from 'reactstrap';
+//import { Button, ListGroup, ListGroupItem } from 'reactstrap';
 import { connect } from 'react-redux';
 import { getMoods, deleteMood } from '../actions/moodActions';
 import PropTypes from 'prop-types'
@@ -21,7 +21,7 @@ class CheckinList extends Component {
 
         return (
             <div>
-                    {moods.slice(0).reverse().map(({ _id, mood, date }) => (
+                    {moods.map(({ _id, mood, date }) => (
                 <div key={_id} className="row border rounded mb-1 p-3">
 
                         <div className="col-9">
