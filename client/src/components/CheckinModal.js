@@ -85,72 +85,81 @@ class CheckingModal extends Component {
                                 <FormGroup tag="fieldset">
                                 <FormGroup check>
                                     <Label check>
-                                        <Input type="radio" name="mood" value="Happy" onChange={this.onChange} />{' '}
+                                        <Input type="radio" name="mood" value="happy" onChange={this.onChange} />{' '}
                                         Happy
                                     </Label>
+                                    <img className="mood-emoji" src="/images/mood_happy.svg" alt="sad"/>
                                     </FormGroup>
                                     <FormGroup check>
                                     <Label check>
-                                        <Input type="radio" name="mood" value="Hopeful" onChange={this.onChange} />{' '}
+                                        <Input type="radio" name="mood" value="hopeful" onChange={this.onChange} />{' '}
                                         Hopeful
                                     </Label>
+                                    <img className="mood-emoji" src="/images/mood_hopeful.svg" alt="sad"/>
                                     </FormGroup>
                                     <FormGroup check>
                                     <Label check>
-                                        <Input type="radio" name="mood" value="Calm" onChange={this.onChange} />{' '}
+                                        <Input type="radio" name="mood" value="calm" onChange={this.onChange} />{' '}
                                         Calm
                                     </Label>
+                                    <img className="mood-emoji" src="/images/mood_calm.svg" alt="sad"/>
                                     </FormGroup>
                                     <FormGroup check>
                                     <Label check>
-                                        <Input type="radio" name="mood" value="Excited" onChange={this.onChange} />{' '}
+                                        <Input type="radio" name="mood" value="excited" onChange={this.onChange} />{' '}
                                         Excited
                                     </Label>
+                                    <img className="mood-emoji" src="/images/mood_excited.svg" alt="sad"/>
                                     </FormGroup>
                                     <FormGroup check>
                                     <Label check>
-                                        <Input type="radio" name="mood" value="Energized" onChange={this.onChange} />{' '}
+                                        <Input type="radio" name="mood" value="energized" onChange={this.onChange} />{' '}
                                         Energized
                                     </Label>
+                                    <img className="mood-emoji" src="/images/mood_energized.svg" alt="sad"/>
                                     </FormGroup>
                                     <FormGroup check>
                                     <Label check>
-                                        <Input type="radio" name="mood" value="Sad" onChange={this.onChange} />{' '}
+                                        <Input type="radio" name="mood" value="sad" onChange={this.onChange} />{' '}
                                         Sad
                                     </Label>
+                                    <img className="mood-emoji" src="/images/mood_sad.svg" alt="sad"/>
                                     </FormGroup>
 
                                     <FormGroup check>
                                     <Label check>
-                                        <Input type="radio" name="mood" value="Anxious" onChange={this.onChange} />{' '}
+                                        <Input type="radio" name="mood" value="anxious" onChange={this.onChange} />{' '}
                                         Anxious
                                     </Label>
+                                    <img className="mood-emoji" src="/images/mood_anxious.svg" alt="sad"/>
                                     </FormGroup>
                                     <FormGroup check>
                                     <Label check>
-                                        <Input type="radio" name="mood" value="Angry" onChange={this.onChange} />{' '}
+                                        <Input type="radio" name="mood" value="angry" onChange={this.onChange} />{' '}
                                         Angry
                                     </Label>
+                                    <img className="mood-emoji" src="/images/mood_angry.svg" alt="sad"/>
                                     </FormGroup>
                                     <FormGroup check>
                                     <Label check>
-                                        <Input type="radio" name="mood" value="Depressed" onChange={this.onChange} />{' '}
+                                        <Input type="radio" name="mood" value="depressed" onChange={this.onChange} />{' '}
                                         Depressed
                                     </Label>
+                                    <img className="mood-emoji" src="/images/mood_depressed.svg" alt="sad"/>
                                     </FormGroup>
-
                                     <FormGroup check>
                                     <Label check>
-                                        <Input type="radio" name="mood" value="Grumpy" onChange={this.onChange} />{' '}
+                                        <Input type="radio" name="mood" value="grumpy" onChange={this.onChange} />{' '}
                                         Grumpy
                                     </Label>
+                                    <img className="mood-emoji" src="/images/mood_grumpy.svg" alt="sad"/>
                                     </FormGroup>
-
                                     <FormGroup check>
                                     <Label check>
-                                        <Input type="radio" name="mood" value="Overwhelmed" onChange={this.onChange} />{' '}
+                                        <Input type="radio" name="mood" value="overwhelmed" onChange={this.onChange} />{' '}
                                         Overwhelmed
                                     </Label>
+                                    <img className="mood-emoji" src="/images/mood_overwhelmed.svg" alt="sad"/>
                                     </FormGroup>
                                 </FormGroup>
                             </FormGroup>

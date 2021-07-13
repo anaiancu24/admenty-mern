@@ -21,11 +21,11 @@ class CheckinList extends Component {
 
         return (
             <div>
-                    {moods.map(({ _id, mood, date }) => (
-                <div key={_id} className="row border rounded mb-1 p-3">
-
-                        <div className="col-9">
-                            {/* <Button
+                {moods.map(({ _id, mood, positivity, happiness, notes, date }, id) => (
+                    <div id="accordion">
+                        <div id={`heading${id}`} key={_id} className="row border rounded mb-1 p-3" data-toggle="collapse" data-target={`collapse${id}`} aria-expanded="true" aria-controls={`collapse${id}`}>
+                            <div className="col-9 d-lg-flex justify-content-between">
+                                {/* <Button
                                     className="remove-btn"
                                     color="danger"
                                     size="sm"
@@ -33,16 +33,22 @@ class CheckinList extends Component {
                                     >
                                     &times;
                                     </Button> */}
-                            {mood}
+                                {/* <p className="mood-text">{mood}</p> */}
+                                <img className="mood-emoji" src={`/images/mood_${mood}.svg`} alt="mood" />
+                                <p>{positivity}</p>
+                                <p>{happiness}</p>
+                            </div>
+                            <div className="col-3">
+                                {moment(date).format('Do MMMM YYYY')}
+                            </div>
                         </div>
-                        <div className="col-3">
-                            {moment(date).format('Do MMMM YYYY')}
+                        <div>
+                            <div class="card-body">
+                                {notes}      
+                            </div>
                         </div>
-
-                </div>
-                    ))}
-
-
+                    </div>
+                ))}
             </div>
         )
     }
