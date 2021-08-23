@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 //import { Container } from 'reactstrap';
 import CheckinList from '../components/CheckinList';
 import CheckinModal from '../components/CheckinModal';
+import Stats from '../components/Stats';
+
 import { logout } from '../actions/authActions';
 import '../styles/Dashboard.scss';
 
@@ -93,6 +95,16 @@ class Dashboard extends Component {
                                 </div>
 
                                 <CheckinList />
+                            </div>
+                        }
+                        {activeStats &&
+                            <div>
+              
+                                <h1>Here are your mood stats</h1>
+               
+    
+
+                                <Stats />
                             </div>
                         }
 

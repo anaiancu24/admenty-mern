@@ -16,6 +16,15 @@ const UserSchema = new Schema({
         type: String,
         required: true
     },
+    status: {
+        type: String, 
+        enum: ['Pending', 'Active'],
+        default: 'Pending'
+      },
+      confirmationCode: { 
+        type: String, 
+        unique: true 
+    },
     checkins: [{
         type: Schema.Types.ObjectId,
         ref: "checkin"
