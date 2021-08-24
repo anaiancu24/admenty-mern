@@ -1,0 +1,11 @@
+@mixin desktop {
+    @media (min-width: 1024px) {
+      @content;
+    }
+}
+
+@mixin flex ($justify, $align) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+}

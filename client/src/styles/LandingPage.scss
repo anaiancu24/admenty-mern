@@ -1,0 +1,86 @@
+@import './base/main.scss';
+
+@include desktop {
+    .container {
+        border-left: 3px dotted $grey-super-light;
+        border-right: 3px dotted $grey-super-light;
+    }
+
+    .navbar {
+        padding: .5rem 0 !important;
+
+        .logo {
+            max-width:130px;
+        }
+    }
+
+    .navbar, .header {
+        border-bottom: 3px dotted $grey-super-light;
+    }
+
+    .header {
+        padding: 0 0 100px;
+    }
+
+    .header-intro {
+        @include flex(center, center);
+    }
+
+    .header-illust {
+        img {
+            max-height: 450px;
+        }
+    }
+
+    .section {
+        padding: 100px 0;
+        border-bottom: 3px dotted $grey-super-light;
+
+        p {
+            max-width: 850px;
+            margin: 0 auto;
+        }
+    }
+
+    .benefit-illust {
+        max-height: 70px;
+    }
+
+
+    .placeholder-dashboard {
+        max-height: 400px;
+    }
+
+    .list-items {
+        counter-reset: item;
+        margin-left: 0;
+        padding-left: 0;
+    }
+.list-item {
+        display: block;
+        margin-bottom: 24px;
+        list-style: none;
+		position: relative;
+		padding: 0 0 0 20px;
+    }
+    .list-item:before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 5px;
+        width: 14px;
+        height: 14px;
+        background-color: $green-fun;
+        border-radius: 50%;
+        -moz-border-radius: 50%;
+        -webkit-border-radius: 50%;
+    }
+    li {
+        list-style: none;
+    }
+
+    footer {
+        padding: 8px 0;
+        font-size:12px;
+    }
+}
