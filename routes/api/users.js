@@ -3,6 +3,7 @@ const router = express.Router();
 const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
+const nodemailer = require('nodemailer')
 
 // Item Model
 const User = require('../../models/User');
@@ -57,7 +58,41 @@ router.post('/', (req, res) => {
                 })
             })
 
+            // Nodemailer stuff
+            // const output = `
+            // <h3>Hey, ${name}</h3>
+            // <p>Thanks for joining Admenty! Your gratefulness journey starts today :) </p>
+            // <br>
+            // <p>Your friends from Admenty</p>
+            // `
 
+            // create reusable transporter object using the default SMTP transport
+            // let transporter = nodemailer.createTransport({
+            //     host: "smtpout.secureserver.net",
+            //     port: 587,
+            //     secureConnection: false,
+            //     secure: false,
+            //     requireTLS: true,
+            //     auth: {
+            //     user: "contact@admenty.com",
+            //     pass: "xxxxxx"
+            //     },
+            //     tls: {
+            //     rejectUnauthorized: false
+            //     }
+            // });
+          
+            // send mail with defined transport object
+            // let info = transporter.sendMail({
+            //   from: '"Admenty" <contact@admenty.com>', // sender address
+            //   to: email, // list of receivers
+            //   subject: "Welcome to Admenty", // Subject line
+            //   text: "Hello world?", // plain text body
+            //   html: output, // html body
+            // });
+          
+            // console.log("Message sent: %s", info.messageId);
+            // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
         })
 })
 
