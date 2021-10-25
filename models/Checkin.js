@@ -7,13 +7,13 @@ const CheckinSchema = new Schema({
         type: String,
         required: true
     },
-    positivity: {
+    intensity: {
         type: Number
     },
-    happiness: {
+    cause: {
         type: String
     },
-    notes: {
+    gratefulness: {
         type: String
     },                                                                  
     date: {

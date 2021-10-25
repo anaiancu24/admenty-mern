@@ -40,7 +40,7 @@ class CheckinList extends Component {
         const dates = []
         moods.map(mood => {
             let formattedDate =  moment(mood.date).format('Do MMMM YYYY')
-            dates.push(formattedDate)
+            return dates.push(formattedDate)
         })
    
         return (
