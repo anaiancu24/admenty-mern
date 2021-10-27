@@ -7,6 +7,15 @@ const CheckinSchema = new Schema({
         type: String,
         required: true
     },
+    intensity: {
+        type: Number
+    },
+    cause: {
+        type: String
+    },
+    gratefulness: {
+        type: String
+    },                                                                  
     date: {
         type: Date,
         default: Date.now

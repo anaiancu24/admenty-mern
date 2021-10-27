@@ -8,7 +8,6 @@ export const getMoods = () => (dispatch, getState) => {
     axios
         .get('/api/checkins', tokenConfig(getState))
         .then(res => {
-            console.log(res)
             dispatch({
                 type: GET_MOODS,
                 payload: res.data

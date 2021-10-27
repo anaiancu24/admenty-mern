@@ -1,10 +1,20 @@
 import React, { Component } from 'react';
-import { ListGroup, ListGroupItem, Button} from 'reactstrap';
+// import { Button, ListGroup, ListGroupItem } from 'reactstrap';
 import { connect } from 'react-redux';
 import { getMoods, deleteMood } from '../actions/moodActions';
 import PropTypes from 'prop-types'
+import moment from 'moment'
 
 class CheckinList extends Component {
+    state = {
+        open: false,
+    }
+
+    toggle = () => {
+        this.setState({
+            open: !this.state.open
+        })
+    }
 
     componentDidMount() {
         this.props.getMoods();
@@ -17,13 +27,14 @@ class CheckinList extends Component {
     render() {
 
         const { moods } = this.props.mood
-        return(
+
+        return (
             <div>
-            
-                                <ListGroup>
-                                {moods.map(({_id, mood}) => (
-                                <ListGroupItem key={_id}>
-                                    {/* <Button
+                {moods.map(({ _id, mood, intensity, cause, gratefulness, date }) => (
+                    <div id="accordion">
+                        <div key={_id} className="row border rounded mb-1 p-3" onClick={this.toggle}>
+                            <div className="col-9 d-lg-flex justify-content-between">
+                                {/* <Button
                                     className="remove-btn"
                                     color="danger"
                                     size="sm"
@@ -31,13 +42,28 @@ class CheckinList extends Component {
                                     >
                                     &times;
                                     </Button> */}
-                                    {mood}
-                                </ListGroupItem>
-                        ))}
-                        </ListGroup> 
-                
-
-
+                                {/* <p className="mood-text">{mood}</p> */}
+                                <img className="mood-emoji" src={`/images/mood_${mood}.svg`} alt="mood" />
+                                <p>{intensity}</p> 
+                                <p>{cause}</p>
+                            </div>
+                            <div className="col-3">
+                                {moment(date).format('Do MMMM YYYY')}
+                            </div>
+                           
+                            {this.state.open ?
+                             <div>
+                            {gratefulness}    
+                            </div>  : ''
+                        }
+                                
+                            
+                        </div>
+                        <div>
+ 
+                        </div>
+                    </div>
+                ))}
             </div>
         )
     }
@@ -55,4 +81,4 @@ const mapStateToProps = (state) => ({
     isAuthenticated: state.auth.isAuthenticated
 })
 
-export default connect(mapStateToProps, { getMoods , deleteMood })(CheckinList);
+export default connect(mapStateToProps, { getMoods, deleteMood })(CheckinList);

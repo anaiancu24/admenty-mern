@@ -24,7 +24,7 @@ class Landing extends Component {
                         <div>
                             <h1 className="heading mb-3">Your daily mental health tracker</h1>
                             <p className="text-secondary mb-4">Make your happiness and mental being a priority as much as you care about your physical health. </p>
-                            <button type="button" class="btn btn-primary">Start tracking your happiness</button>
+                            <button type="button" className="btn btn-primary">Start tracking your happiness</button>
                         </div>
                     </div>
                     <div className="ml-auto header-illust">
@@ -32,7 +32,7 @@ class Landing extends Component {
                     </div>
                 </div>
 
-                <div className="section text-center">
+                <div id="benefits" className="section text-center">
                     <h2 className="mb-3">Is mental health your priority?</h2>
                     <p className="mb-5">According to World Health Organization, 264 million people are affected by depression globally. Yet, mental health remains a neglected concern. If you are confused about prioritizing or looking after your mental health, Admenty is the solution.  </p>
                     <div className="row d-lg-flex">
@@ -55,7 +55,7 @@ class Landing extends Component {
                 </div>
 
 
-                <div className="section">
+                <div id="howitworks" className="section">
                     <h2 className="mb-3 text-center">How does it work?</h2>
                     <p className="mb-5 text-center">A very intuitive platform that will guide you through your daily mood and based on your checkins, you will have access to a stats dashboard to analyse your tracking.</p>
                     <div className="d-lg-flex justify-content-center align-items-center">
@@ -87,7 +87,7 @@ class Landing extends Component {
                 <div className="section text-center">
                     <h2 className="mb-3">Try our mental health tracker today</h2>
                     <p className="mb-4">If your mental health is not stable, you cannot achieve optimum physical health as well. Therefore, both mental and physical health is important for your overall wellbeing.   </p>
-                    <button type="button" class="btn btn-primary">Free trial</button>
+                    <button type="button" className="btn btn-primary">Free trial</button>
 
                 </div>
 

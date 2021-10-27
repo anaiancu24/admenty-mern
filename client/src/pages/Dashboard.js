@@ -6,6 +6,8 @@ import PropTypes from 'prop-types';
 //import { Container } from 'reactstrap';
 import CheckinList from '../components/CheckinList';
 import CheckinModal from '../components/CheckinModal';
+import Stats from '../components/Stats';
+
 import { logout } from '../actions/authActions';
 import '../styles/Dashboard.scss';
 
@@ -60,7 +62,7 @@ class Dashboard extends Component {
                             {hour < 5 && <p>Good Night, <span className="highlighted">{user.name}</span> !</p>}
                         </div> : ''}
                 </nav>
-                <div class="dashboard-wrapper">
+                <div className="dashboard-wrapper">
                     {/* SIDEBAR */}
                     <div className="sidebar">
                         <div className={activeOverview ? ' sidebar-option overview selected' : 'sidebar-option overview'} onClick={() => {
@@ -75,7 +77,7 @@ class Dashboard extends Component {
                         }}>
                             <img src="/images/icon_team.svg" alt="admenty" />
                         </div>
-                        <div class="settings">
+                        <div className="settings">
                             {/* <img src="/images/icon_settings.svg" alt="admenty" /> */}
                             <button onClick={this.props.logout}>
                                 Logout
@@ -93,6 +95,16 @@ class Dashboard extends Component {
                                 </div>
 
                                 <CheckinList />
+                            </div>
+                        }
+                        {activeStats &&
+                            <div>
+              
+                                <h1>Here are your mood stats</h1>
+               
+    
+
+                                <Stats />
                             </div>
                         }
 

@@ -89,3 +89,11 @@ button {
     border: none;
     background-color: unset;
 }
+
+.mood-emoji {
+    height:30px;
+}
+
+.mood-text:first-letter {
+    text-transform:capitalize;
+}
