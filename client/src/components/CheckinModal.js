@@ -45,9 +45,9 @@ class CheckingModal extends Component {
 
         const newCheckin = {
             mood: this.state.mood,
-            intensity: this.state.positivity,
-            cause: this.state.happiness,
-            gratefulness: this.state.notes
+            intensity: this.state.intensity,
+            cause: this.state.cause,
+            gratefulness: this.state.gratefulness
         }
 
         // Add mood via addMood action
@@ -191,7 +191,7 @@ class CheckingModal extends Component {
                             <FormGroup>
                                 <Label for="intensity">From 1 to 10, how {this.state.mood} do you feel?</Label>
                                 <Input type="range" min="1" max="10" name="intensity" id="intensity" onChange={this.onChange} />
-                            </FormGroup>
+                            </FormGroup>{this.state.intensity}
                             <FormGroup>
                                 <Label for="cause">What do you think is the cause why you feel {this.state.mood} today?</Label>
                                 <Input type="select" name="cause" id="cause" onChange={this.onChange}>
@@ -202,7 +202,7 @@ class CheckingModal extends Component {
                                     <option>Weather</option>
                                     <option>Yourself</option>
                                 </Input>
-                            </FormGroup>
+                            </FormGroup>{this.state.cause}
                             <FormGroup>
                                 {this.state.key > 5 ?
 
@@ -216,7 +216,7 @@ class CheckingModal extends Component {
 
                                     </div>}
                                 <Input type="textarea" name="gratefulness" id="gratefulness" placeholder="Today I feel grateful for.." onChange={this.onChange} />
-
+                                {this.state.gratefulness}
                                 <Button color="dark" style={{ marginTop: '2rem' }} block>Checkin</Button>
                             </FormGroup>
                         </Form>
