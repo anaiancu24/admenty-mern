@@ -7,7 +7,7 @@ const nodemailer = require('nodemailer')
 
 // Item Model
 const User = require('../../models/User');
-
+var app = express()
 // @route POST api/users
 // @desc Register new user
 // @access Public
@@ -93,6 +93,31 @@ router.post('/', (req, res) => {
           
             // console.log("Message sent: %s", info.messageId);
             // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
+
+            // Hubspot
+
+
+                // var options = { method: 'POST',
+                // url: 'https://api.hubapi.com/contacts/v1/contact/',
+                // qs: { hapikey: 'eu1-3c69-fa73-4ef2-a3ee-e895d08331aa' },
+                // headers: 
+                // { 
+                //     'Content-Type': 'application/json' },
+                // body: 
+                // { properties: 
+                //     [ { property: 'email', value: newUser.email },
+                //         { property: 'firstname', value: newUser.name }, ] },
+                // json: true };
+
+                // request(options, function (error, response, body) {
+                // if (error) throw new Error(error);
+
+                // console.log(body);
+                // });
+
+                // app.post('https://api.hubapi.com/contacts/v1/contact/', {hapikey: 'eu1-3c69-fa73-4ef2-a3ee-e895d08331aa'}, function (req, res) {
+                //     res.send('POST request to homepage')
+                // })
         })
 })
 

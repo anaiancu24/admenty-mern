@@ -186,6 +186,13 @@ class CheckingModal extends Component {
                                         </Label>
                                         <img className="mood-emoji" src="/images/mood_calm.svg" alt="sad" />
                                     </FormGroup>
+                                    <FormGroup check className="mb-2">
+                                        <Label check className="mr-2">
+                                            <Input type="radio" name="mood" data-key="2" value="tired" onChange={this.onChange} />{' '}
+                                            Tired
+                                        </Label>
+                                        <img className="mood-emoji" src="/images/mood_calm.svg" alt="sad" />
+                                    </FormGroup>
                                 </FormGroup>
                             </FormGroup>
                             <FormGroup>
