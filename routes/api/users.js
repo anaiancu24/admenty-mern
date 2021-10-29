@@ -4,14 +4,15 @@ const bcrypt = require('bcryptjs');
 const config = require('config');
 const jwt = require('jsonwebtoken');
 const nodemailer = require('nodemailer')
+const Hubspot = require('hubspot')
 
 // Item Model
 const User = require('../../models/User');
-var app = express()
+
 // @route POST api/users
 // @desc Register new user
 // @access Public
-router.post('/', (req, res) => {
+router.post('/', async (req, res) => {
     const { name, email, password } = req.body;
 
     // Simple validation
@@ -58,67 +59,49 @@ router.post('/', (req, res) => {
                 })
             })
 
-            // Nodemailer stuff
-            // const output = `
-            // <h3>Hey, ${name}</h3>
-            // <p>Thanks for joining Admenty! Your gratefulness journey starts today :) </p>
-            // <br>
-            // <p>Your friends from Admenty</p>
-            // `
-
-            // create reusable transporter object using the default SMTP transport
-            // let transporter = nodemailer.createTransport({
-            //     host: "smtpout.secureserver.net",
-            //     port: 587,
-            //     secureConnection: false,
-            //     secure: false,
-            //     requireTLS: true,
-            //     auth: {
-            //     user: "contact@admenty.com",
-            //     pass: "xxxxxx"
-            //     },
-            //     tls: {
-            //     rejectUnauthorized: false
-            //     }
-            // });
-          
-            // send mail with defined transport object
-            // let info = transporter.sendMail({
-            //   from: '"Admenty" <contact@admenty.com>', // sender address
-            //   to: email, // list of receivers
-            //   subject: "Welcome to Admenty", // Subject line
-            //   text: "Hello world?", // plain text body
-            //   html: output, // html body
-            // });
-          
-            // console.log("Message sent: %s", info.messageId);
-            // console.log("Preview URL: %s", nodemailer.getTestMessageUrl(info));
 
             // Hubspot
+            //             <script charset="utf-8" type="text/javascript" src="//js-eu1.hsforms.net/forms/shell.js"></script>
+            // <script>
+            //   hbspt.forms.create({
+            // 	region: "eu1",
+            // 	portalId: "25216019",
+            // 	formId: "5f7f04cc-d8ce-452f-a25f-91afb7cd5cd2"
+            // });
+            // </script>
+  
 
+               
 
-                // var options = { method: 'POST',
-                // url: 'https://api.hubapi.com/contacts/v1/contact/',
-                // qs: { hapikey: 'eu1-3c69-fa73-4ef2-a3ee-e895d08331aa' },
-                // headers: 
-                // { 
-                //     'Content-Type': 'application/json' },
-                // body: 
-                // { properties: 
-                //     [ { property: 'email', value: newUser.email },
-                //         { property: 'firstname', value: newUser.name }, ] },
-                // json: true };
-
-                // request(options, function (error, response, body) {
-                // if (error) throw new Error(error);
-
-                // console.log(body);
-                // });
-
-                // app.post('https://api.hubapi.com/contacts/v1/contact/', {hapikey: 'eu1-3c69-fa73-4ef2-a3ee-e895d08331aa'}, function (req, res) {
-                //     res.send('POST request to homepage')
-                // })
         })
+
+
+          const portalId = "25216019"
+          const formId = "5f7f04cc-d8ce-452f-a25f-91afb7cd5cd2"
+          var data = {
+            "fields": [
+              {
+                "name": "email",
+                "value": email
+              },
+              {
+                "name": "firstname",
+                "value": name
+              }
+            ],
+
+          }
+      
+          var final_data = JSON.stringify(data)
+
+        try{
+            const hubspot = new Hubspot();
+            const hubspotContact = await hubspot.forms.submit(portalId, formId, data);
+        }
+        catch (err){
+            console.log(err)
+        }
+
 })
 
 
