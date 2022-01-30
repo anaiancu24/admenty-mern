@@ -30,9 +30,9 @@ class CheckinList extends Component {
 
         return (
             <div>
-                {moods.map(({ _id, mood, intensity, cause, gratefulness, date }) => (
+                {moods.map(({ _id, mood, mood_level, intensity, cause, gratefulness, date }) => (
                     <div id="accordion">
-                        <div key={_id} className="row border rounded mb-1 p-3" onClick={this.toggle}>
+                        <div key={_id} className="row mb-1 p-3" onClick={this.toggle}>
                             <div className="col-9 d-lg-flex justify-content-between">
                                 {/* <Button
                                     className="remove-btn"
@@ -44,6 +44,7 @@ class CheckinList extends Component {
                                     </Button> */}
                                 {/* <p className="mood-text">{mood}</p> */}
                                 <img className="mood-emoji" src={`/images/mood_${mood}.svg`} alt="mood" />
+                                <p>{mood_level}</p> 
                                 <p>{intensity}</p> 
                                 <p>{cause}</p>
                             </div>

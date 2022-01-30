@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { getMoods } from '../actions/moodActions';
 import PropTypes from 'prop-types';
-import {Line} from 'react-chartjs-2';
+import {Line, Pie} from 'react-chartjs-2';
 import moment from 'moment'
 
 
@@ -17,36 +17,47 @@ class CheckinList extends Component {
     render() {
 
         const { moods } = this.props.mood
-        const positivities = []
-        moods.map(mood => positivities.push(mood.positivity))
+
+        // get all the moods labels
+        const moods_labels = []
+        moods.map(mood => moods_labels.push(mood.mood))
+        // get the unique moods
+        const moods_labels_uniq = [...new Set(moods_labels)];
+        // get the number of each unique mood
+        const moods_labels_uniq_counts = {};
+        moods_labels.forEach(function (x) { moods_labels_uniq_counts[x] = (moods_labels_uniq_counts[x] || 0) + 1; });
+
+
+        // get all the moods levels
+        const mood_levels = []
+        moods.map(mood => mood_levels.push(mood.mood_level))
+        //get all th dates
         const dates = []
         moods.map(mood => {
-            let formattedDate =  moment(mood.date).format('Do MMMM YYYY')
+            let formattedDate =  moment(mood.date).format('Do MMMM')
             return dates.push(formattedDate)
         })
    
         return (
             <div>
-                {positivities}
                 <Line
-          data={{
+            data={{
             labels: dates.reverse(),
             datasets: [
               {
-                label: 'Positivity Level',
+                label: 'Mood level',
                 fill: false,
                 lineTension: 0.5,
                 backgroundColor: 'rgba(75,192,192,1)',
                 borderColor: 'rgba(0,0,0,1)',
                 borderWidth: 2,
-                data: positivities.reverse()
+                data: mood_levels.reverse()
               }
             ]
           }}
           options={{
             title:{
               display:true,
-              text:'Average Rainfall per month',
               fontSize:20
             },
             legend:{
@@ -55,6 +66,41 @@ class CheckinList extends Component {
             }
           }}
         />
+            <Pie data={{
+  labels: moods_labels_uniq,
+  datasets: [
+    {
+      label: '# of Votes',
+      data: Object.values(moods_labels_uniq_counts),
+      backgroundColor: [
+        'rgba(255, 99, 132, 0.2)',
+        'rgba(54, 162, 235, 0.2)',
+        'rgba(255, 206, 86, 0.2)',
+        'rgba(75, 192, 192, 0.2)',
+        'rgba(153, 102, 255, 0.2)',
+        'rgba(255, 159, 64, 0.2)',
+        'rgba(125, 29, 24, 0.2)',
+        'rgba(75, 229, 124, 0.2)',
+        'rgba(195, 9, 14, 0.2)',
+
+      ],
+      borderColor: [
+        'rgba(255, 99, 132, 1)',
+        'rgba(54, 162, 235, 1)',
+        'rgba(255, 206, 86, 1)',
+        'rgba(75, 192, 192, 1)',
+        'rgba(153, 102, 255, 1)',
+        'rgba(255, 159, 64, 1)',
+        'rgba(125, 29, 24, 0.6)',
+        'rgba(75, 229, 124, 1)',
+        'rgba(195, 9, 14, 0.6)',
+
+      ],
+      borderWidth: 1,
+    },
+  ],
+}} />
+
             </div>
         )
     }

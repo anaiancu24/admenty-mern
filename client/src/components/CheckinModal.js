@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import {
     Button,
-    Modal,
-    ModalHeader,
-    ModalBody,
+    // Modal,
+    // ModalHeader,
+    // ModalBody,
     Form,
     FormGroup,
     Label,
@@ -15,29 +15,34 @@ import PropTypes from 'prop-types';
 
 class CheckingModal extends Component {
     state = {
-        modal: false,
+        // modal: false,
         mood: '',
+        mood_level: 6,
         intensity: null,
         cause: '',
         gratefulness: '',
-        key: 6
     }
 
     static propTypes = {
         isAuthenticated: PropTypes.bool
     }
 
-    toggle = () => {
-        this.setState({
-            modal: !this.state.modal
-        })
-    }
+    // toggle = () => {
+    //     this.setState({
+    //         modal: !this.state.modal
+    //     })
+    // }
 
     onChange = (e) => {
         this.setState({
             [e.target.name]: e.target.value,
-            key: e.target.dataset.key
         })
+        if (e.target.name === 'mood') {
+            this.setState({
+                [e.target.name]: e.target.value,
+                mood_level: e.target.dataset.key
+            })
+        }
     }
 
     onSubmit = e => {
@@ -47,14 +52,15 @@ class CheckingModal extends Component {
             mood: this.state.mood,
             intensity: this.state.intensity,
             cause: this.state.cause,
-            gratefulness: this.state.gratefulness
+            gratefulness: this.state.gratefulness,
+            mood_level:this.state.mood_level
         }
 
         // Add mood via addMood action
         this.props.addMood(newCheckin)
 
         // Close toggle
-        this.toggle()
+        // this.toggle()
     }
 
     render() {
@@ -62,7 +68,7 @@ class CheckingModal extends Component {
 
         return (
             <div>
-                {this.props.isAuthenticated ?
+                {/* {this.props.isAuthenticated ?
                     <button
                         type="button"
                         className="btn btn-primary btn-lg"
@@ -70,18 +76,15 @@ class CheckingModal extends Component {
                     >
                         Checkin
                     </button> : ''
-                }
+                } */}
 
 
-                <Modal
-                    isOpen={this.state.modal}
-                    toggle={this.state.toggle}
-                >
-                    <ModalHeader toggle={this.toggle}>
+ 
+                    <h2>
                         How do you feel today?
-                    </ModalHeader>
+                    </h2>
 
-                    <ModalBody>
+  
                         <Form onSubmit={this.onSubmit}>
                             <FormGroup>
                                 <Label for="mood">How are you feeling today? What’s your mood?</Label>
@@ -198,7 +201,7 @@ class CheckingModal extends Component {
                             <FormGroup>
                                 <Label for="intensity">From 1 to 10, how {this.state.mood} do you feel?</Label>
                                 <Input type="range" min="1" max="10" name="intensity" id="intensity" onChange={this.onChange} />
-                            </FormGroup>{this.state.intensity}
+                            </FormGroup>
                             <FormGroup>
                                 <Label for="cause">What do you think is the cause why you feel {this.state.mood} today?</Label>
                                 <Input type="select" name="cause" id="cause" onChange={this.onChange}>
@@ -209,9 +212,9 @@ class CheckingModal extends Component {
                                     <option>Weather</option>
                                     <option>Yourself</option>
                                 </Input>
-                            </FormGroup>{this.state.cause}
+                            </FormGroup>
                             <FormGroup>
-                                {this.state.key > 5 ?
+                                {this.state.mood_level > 5 ?
 
                                     <div>
                                         <Label for="gratefulness">Good mood: We’re really happy you’re having a good mood today, so we hope you can easily name 3 things that make you feel this way or you’re grateful for</Label>
@@ -223,12 +226,12 @@ class CheckingModal extends Component {
 
                                     </div>}
                                 <Input type="textarea" name="gratefulness" id="gratefulness" placeholder="Today I feel grateful for.." onChange={this.onChange} />
-                                {this.state.gratefulness}
+                            
                                 <Button color="dark" style={{ marginTop: '2rem' }} block>Checkin</Button>
                             </FormGroup>
                         </Form>
-                    </ModalBody>
-                </Modal>
+
+
             </div>
         )
     }

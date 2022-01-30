@@ -88,21 +88,33 @@ class Dashboard extends Component {
                     {/* WIDGETS */}
                     <div className="widgets">
                         {activeOverview &&
-                            <div>
-                                <div className="d-lg-flex mb-5">
-                                <h1 className="mr-5">It's time for your daily checkin!</h1>
-                                <CheckinModal />
+                            <div className="widgets-wrapper">
+                                <div className="widgets-left">
+                                    <div className="widget widget-quote">
+                                        <p>I don't believe you have to be better than everybody else. I believe you have to be better than you ever thought you could be.</p>
+                                    </div>
+                                    <div className="widget widget-checkin-list">
+                                        <CheckinList />
+                                    </div>
+                                    {/* <h1 className="">It's time for your daily checkin!</h1> */}
+
+                                </div>
+                                <div className="widgets-right">
+                                    <div className="widget widget-checkin">
+                                        <CheckinModal />
+                                    </div>
+
                                 </div>
 
-                                <CheckinList />
+
                             </div>
                         }
                         {activeStats &&
                             <div>
-              
+
                                 <h1>Here are your mood stats</h1>
-               
-    
+
+
 
                                 <Stats />
                             </div>

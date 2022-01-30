@@ -7,6 +7,9 @@ const CheckinSchema = new Schema({
         type: String,
         required: true
     },
+    mood_level: {
+        type: Number
+    },
     intensity: {
         type: Number
     },

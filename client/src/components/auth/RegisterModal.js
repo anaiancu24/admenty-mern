@@ -14,6 +14,8 @@ import {
 import { connect } from 'react-redux';
 import PropTypes from 'prop-types';
 import { Redirect } from 'react-router-dom';
+import validator from 'validator'
+
 
 import { register } from '../../actions/authActions';
 import {clearErrors} from "../../actions/errorActions"
@@ -26,6 +28,8 @@ class RegisterModal extends Component {
         password: '',
         msg: null
     }
+
+
 
     static propTypes = {
         isAuthenticated: PropTypes.bool,
@@ -53,6 +57,18 @@ class RegisterModal extends Component {
         }
     }
 
+    validate = (value) => {
+  
+        if (validator.isStrongPassword(value, {
+          minLength: 8, minUppercase: 1, minNumbers: 1, minSymbols: 1
+        })) {
+          console.log('Is Strong Password')
+        } else {
+          console.log('Is Not Strong Password')
+        }
+
+      }
+
     toggle = () => {
         // Clear errors
         this.props.clearErrors();
@@ -65,6 +81,13 @@ class RegisterModal extends Component {
         this.setState({
             [e.target.name]: e.target.value
         })
+    }
+
+    onChangePass = (e) => {
+        this.setState({
+            [e.target.name]: e.target.value
+        })
+        this.validate(e.target.value)
     }
 
     onSubmit = e => {
@@ -109,7 +132,12 @@ class RegisterModal extends Component {
                             </FormGroup>
                             <FormGroup>
                                 <Label for="name">Password</Label>
-                                <Input type="password" name="password" id="password" placeholder="Type your password.." onChange={this.onChange} />
+                                <Input type="password" name="password" id="password" placeholder="Type your password.." onChange={this.onChangePass} />
+                                <p id="char">Your password must include min 8 char</p>
+                                <p id="upper">Your password must include min 1 upper letter</p>
+                                <p id="number">Your password must include min 1 number</p>
+                                <p id="symbol">Your password must include min 1 symbol</p>
+
                             </FormGroup>
 
                             <Button color="dark" style={{ marginTop: '2rem' }} block>Register</Button>

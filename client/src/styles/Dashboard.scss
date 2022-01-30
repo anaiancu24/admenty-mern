@@ -2,6 +2,7 @@
 
 .dashboard {
     padding:40px;
+    background-color: #3389E6;
 }
 
 .toolbar {
@@ -31,20 +32,9 @@
     font-weight: 600;
 }
 
-.dashboard-wrapper {
-    display:flex;
-}
 
-.sidebar {
-    position: relative;
-    width: 140px;
-    height: 475px;
-    border-radius: 40px;
-    padding:70px 0;
-    margin-right: 110px;
-    background-color: $green-fun;
-    opacity: 0.7;
-}
+
+
 
 
 
@@ -80,7 +70,6 @@
     margin: 0 auto;
     display: flex;
     justify-content: center;
-    width: 100%;
     align-items: center;
 }
 
@@ -96,4 +85,41 @@ button {
 
 .mood-text:first-letter {
     text-transform:capitalize;
+}
+
+// new design desktop
+
+.dashboard-wrapper {
+    display:flex;
+    gap:116px;
+}
+
+.sidebar {
+    position: relative;
+    height: 400px;
+    border-radius: 10px;
+    padding:32px;
+    opacity: 0.7;
+    background: rgba(46, 46, 46, 0.6);
+    border: 0.4px solid #CACACA;
+    backdrop-filter: blur(40px);
+}
+
+.widgets {
+    max-width: 73%;
+}
+
+.widgets-wrapper {
+    display: flex;
+    justify-content: space-between;
+    gap: 40px;
+}
+
+.widget {
+    background: rgba(46, 46, 46, 0.6);
+    border: 0.4px solid #CACACA;
+    backdrop-filter: blur(40px);
+    border-radius: 10px;
+    margin-bottom: 40px;
+    padding:32px;
 }
