@@ -22,7 +22,8 @@ class Dashboard extends Component {
     state = {
         hour: null,
         activeOverview: true,
-        activeStats: false
+        activeStats: false,
+        activeSettings: false
     }
 
     componentDidMount() {
@@ -39,7 +40,7 @@ class Dashboard extends Component {
 
     render() {
         const { isAuthenticated, user } = this.props.auth
-        const { hour, activeOverview, activeStats } = this.state;
+        const { hour, activeOverview, activeStats, activeSettings } = this.state;
 
 
         if (!isAuthenticated) {
@@ -65,23 +66,29 @@ class Dashboard extends Component {
                 <div className="dashboard-wrapper">
                     {/* SIDEBAR */}
                     <div className="sidebar">
-                        <div className={activeOverview ? ' sidebar-option overview selected' : 'sidebar-option overview'} onClick={() => {
+                        <div className={activeOverview ? 'sidebar-option overview selected' : 'sidebar-option overview'} onClick={() => {
                             this.setState({ activeOverview: true })
                             this.setState({ activeStats: false })
+                            this.setState({ activeSettings: false })
                         }}>
-                            <img src="/images/icon_overview.svg" alt="admenty" />
+                            <img src="/images/icon_checkin.svg" alt="admenty" />
                         </div>
-                        <div className={activeStats ? 'sidebar-option team selected' : 'sidebar-option team'} onClick={() => {
+                        <div className={activeStats ? 'sidebar-option stats selected' : 'sidebar-option stats'} onClick={() => {
                             this.setState({ activeOverview: false })
                             this.setState({ activeStats: true })
+                            this.setState({ activeSettings: false })
                         }}>
-                            <img src="/images/icon_team.svg" alt="admenty" />
+                            <img src="/images/icon_statistics.svg" alt="admenty" />
                         </div>
-                        <div className="settings">
-                            {/* <img src="/images/icon_settings.svg" alt="admenty" /> */}
-                            <button onClick={this.props.logout}>
-                                Logout
-                            </button>
+                        <div className={activeSettings ? 'sidebar-option settings selected' : 'sidebar-option settings'} onClick={() => {
+                            this.setState({ activeOverview: false })
+                            this.setState({ activeStats: false })
+                            this.setState({ activeSettings: true })
+                        }}>
+                            <img src="/images/icon_settings.svg" alt="admenty" />
+                        </div>
+                        <div className="logout">
+                            <img onClick={this.props.logout} src="/images/icon_logout.svg" alt="admenty" />
                         </div>
 
                     </div>
@@ -91,12 +98,15 @@ class Dashboard extends Component {
                             <div className="widgets-wrapper">
                                 <div className="widgets-left">
                                     <div className="widget widget-quote">
-                                        <p>I don't believe you have to be better than everybody else. I believe you have to be better than you ever thought you could be.</p>
+                                        <div className="quote-wrapper">
+                                        <p className="quote">I don't believe you have to be better than everybody else. I believe you have to be better than you ever thought you could be.</p>
+                                        <p className="quoter">Ken Venturi</p>
+                                        </div>
+
                                     </div>
                                     <div className="widget widget-checkin-list">
                                         <CheckinList />
                                     </div>
-                                    {/* <h1 className="">It's time for your daily checkin!</h1> */}
 
                                 </div>
                                 <div className="widgets-right">

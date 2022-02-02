@@ -1,16 +1,8 @@
 @import './base/main.scss';
 
-.dashboard {
-    padding:40px;
-    background-color: #3389E6;
-}
 
-.toolbar {
-    display:flex;
-    justify-content: space-between;
-    align-items: center;
-    margin-bottom: 30px;
-}
+
+
 
 .toolbar .logo {
     height:30px;
@@ -20,17 +12,6 @@
     }
 }
 
-.toolbar .greeting {
-    color:#b3b3ba;
-    font-size: 18px;
-}
-
-.toolbar .greeting .highlighted {
-    background-image: linear-gradient(101deg, $mountain-meadow  0%, $green-fun 100%);
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    font-weight: 600;
-}
 
 
 
@@ -38,40 +19,12 @@
 
 
 
-.sidebar-option {
-    width: 50px;
-    height: 50px;
-    opacity: 0.8;
-    border-radius: 12px;
-    background-color: rgba(216, 216, 216, 0.1);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin:0 auto;
-    margin-bottom: 30px;
-    cursor: pointer;
-    position:relative;
-    z-index:1;
 
-    img {
-        height: 50%;
-    }
-}
 
-.selected {
-    background-image: linear-gradient(135deg, $grey-light 1%, $grey-super-light);
-    opacity: 1;
-}
 
-.settings {
-    position: absolute;
-    bottom:70px;
-    z-index:1;   
-    margin: 0 auto;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
+
+
+
 
 button {
     z-index: 1;
@@ -89,9 +42,30 @@ button {
 
 // new design desktop
 
+.dashboard {
+    padding:48px;
+    background-color: #3389E6;
+}
+
 .dashboard-wrapper {
     display:flex;
     gap:116px;
+}
+
+.toolbar {
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 75px;
+}
+
+.toolbar .greeting {
+    color:#fff;
+    font-size: 24px;
+
+    p {
+        margin-bottom: 0;
+    }
 }
 
 .sidebar {
@@ -103,6 +77,7 @@ button {
     background: rgba(46, 46, 46, 0.6);
     border: 0.4px solid #CACACA;
     backdrop-filter: blur(40px);
+    margin-top: 10%; //maybe to be adjusted
 }
 
 .widgets {
@@ -122,4 +97,54 @@ button {
     border-radius: 10px;
     margin-bottom: 40px;
     padding:32px;
+}
+
+.sidebar-option {
+    width: 56px;
+    height: 56px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin:0 auto;
+    margin-bottom: 16px;
+    cursor: pointer;
+    position:relative;
+    z-index:1;
+}
+
+.selected {
+    background: #3389E6;
+    opacity: 1;
+}
+
+.logout {
+    width: 56px;
+    height: 56px;
+    position: absolute;
+    bottom:32px;
+    z-index:1;   
+    margin: 0 auto;
+    display: flex;
+    justify-content: center;
+    align-items: flex-end;
+    cursor: pointer;
+}
+
+.widget-quote {
+
+    .quote-wrapper {
+        border-left: 0.4px solid #828282;
+        padding-left: 16px;
+    }
+
+    .quote {
+        font-weight: 600;
+        font-size: 16px;
+    }
+
+    .quoter {
+        font-size: 14px;
+        margin-bottom: 0;
+    }
 }
