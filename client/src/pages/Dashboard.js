@@ -50,7 +50,12 @@ class Dashboard extends Component {
 
         return (
 
-            <div className="dashboard">
+            <div className="dashboard" style={{
+                "background":"url('/images/bg_waves1.jpg')", 
+                "background-repeat": "no-repeat",
+                "background-color": "#3389E6",
+                "background-size": "contain",
+            }}>
                 <nav className="toolbar">
                     <div className="logo">
                         <img src="/images/logo_grey.svg" alt="logo-admenty" />

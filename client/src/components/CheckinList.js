@@ -30,6 +30,7 @@ class CheckinList extends Component {
 
         return (
             <div>
+                <h2 className="widget-title">Past Checkins</h2>
                 {moods.map(({ _id, mood, mood_level, intensity, cause, gratefulness, date }) => (
                     <div id="accordion">
                         <div key={_id} className="row mb-1 p-3" onClick={this.toggle}>

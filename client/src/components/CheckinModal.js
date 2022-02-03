@@ -80,8 +80,8 @@ class CheckingModal extends Component {
 
 
  
-                    <h2>
-                        How do you feel today?
+                    <h2 className="widget-title">
+                        It's time for your daily checkin!
                     </h2>
 
   
