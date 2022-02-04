@@ -227,7 +227,7 @@ class CheckingModal extends Component {
                                     </div>}
                                 <Input type="textarea" name="gratefulness" id="gratefulness" placeholder="Today I feel grateful for.." onChange={this.onChange} />
                             
-                                <Button color="dark" style={{ marginTop: '2rem' }} block>Checkin</Button>
+                                <Button className="checkin-button" color="dark" style={{ marginTop: '2rem' }} block>Checkin</Button>
                             </FormGroup>
                         </Form>
 

@@ -98,6 +98,10 @@ button {
     padding:32px;
 }
 
+.widget-left, .widget-right {
+    flex:1;
+}
+
 .sidebar-option {
     width: 56px;
     height: 56px;
@@ -153,4 +157,35 @@ button {
     font-weight: 600;
     border-bottom: 0.4px solid #828282;
     padding-bottom: 16px;
+}
+
+.widget-checkin-list {
+    height:480px;
+}
+
+.checkins {
+    height:365px;
+    overflow:auto;
+}
+
+select {
+    background: rgba(46, 46, 46, 0.6) !important;
+border: 0.4px solid #CACACA !important;
+backdrop-filter: blur(40px) !important;
+border-radius: 10px !important;
+color:white !important;
+height: 48px !important;
+padding: 8px 16px !important;
+} // to be removed
+
+.checkin-button {
+    position: relative;
+    right: 0;
+width: 92px;
+height: 40px;
+background: #3389E6 !important;
+color:white;
+box-shadow: 0px 4px 16px rgba(75, 75, 75, 0.15) !important;
+border-radius: 10px !important;
+border:none !important;
 }

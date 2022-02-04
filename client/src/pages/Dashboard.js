@@ -54,7 +54,7 @@ class Dashboard extends Component {
                 "background":"url('/images/bg_waves1.jpg')", 
                 "background-repeat": "no-repeat",
                 "background-color": "#3389E6",
-                "background-size": "contain",
+                "background-size": "cover",
             }}>
                 <nav className="toolbar">
                     <div className="logo">
