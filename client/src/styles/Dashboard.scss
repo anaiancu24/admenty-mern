@@ -157,6 +157,7 @@ button {
     font-weight: 600;
     border-bottom: 0.4px solid #828282;
     padding-bottom: 16px;
+    margin-bottom: 16px;
 }
 
 .widget-checkin-list {
@@ -168,24 +169,71 @@ button {
     overflow:auto;
 }
 
-select {
-    background: rgba(46, 46, 46, 0.6) !important;
-border: 0.4px solid #CACACA !important;
-backdrop-filter: blur(40px) !important;
-border-radius: 10px !important;
-color:white !important;
-height: 48px !important;
-padding: 8px 16px !important;
-} // to be removed
+// select {
+//     background: rgba(46, 46, 46, 0.6) !important;
+// border: 0.4px solid #CACACA !important;
+// backdrop-filter: blur(40px) !important;
+// border-radius: 10px !important;
+// color:white !important;
+// height: 48px !important;
+// padding: 8px 16px !important;
+// } // to be removed
+
+.button-wrapper {
+margin-top: 32px;
+text-align: right;
+}
 
 .checkin-button {
     position: relative;
     right: 0;
 width: 92px;
 height: 40px;
-background: #3389E6 !important;
+background: #3389E6;
 color:white;
-box-shadow: 0px 4px 16px rgba(75, 75, 75, 0.15) !important;
-border-radius: 10px !important;
-border:none !important;
+box-shadow: 0px 4px 16px rgba(75, 75, 75, 0.15);
+border-radius: 10px;
+border:none;
+}
+
+.items-wrapper {
+    display:flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+}
+
+.item-wrapper {
+    background: rgba(46, 46, 46, 0.6);
+    border: 0.4px solid #CACACA;
+    backdrop-filter: blur(40px);
+    border-radius: 10px;
+    padding: 8px 16px;
+}
+
+.item-wrapper {
+    margin-right: 16px;
+    input {
+        visibility: hidden;
+    }
+    label {
+        margin-bottom: 0;
+        cursor: pointer;
+    }
+
+    input:checked + label{
+        color: red;
+    }
+}
+
+.checkin-question {
+    font-size: 18px;
+    margin-bottom: 16px;
+}
+
+.textarea {
+    min-height: 96px;
+    background: rgba(46, 46, 46, 0.6);
+    border: 0.4px solid #CACACA;
+    backdrop-filter: blur(40px);
+    border-radius: 10px;
 }
